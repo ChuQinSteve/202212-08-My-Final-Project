@@ -127,3 +127,13 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# dependencies
+front-end/node_modules
+
+# production
+front-end/build
+
+# misc
+.DS_Store
