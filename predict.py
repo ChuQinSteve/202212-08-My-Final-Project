@@ -62,8 +62,6 @@ def predict():
     house_size = body['house_size']
     zipcode = body['zip_code']
 
-    print(type(bed), type(bath), type(house_size), type(zipcode))
-
     # get zip code info
     info = find_zip_info(zipcode)
     state = info.state_code

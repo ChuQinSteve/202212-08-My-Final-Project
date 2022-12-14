@@ -10,6 +10,18 @@
     background-color: #f5cea6;
   }
 
+  .vislink {
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    font-size: 20px;
+  }
+
+  a {
+    text-decoration: none;
+  }
    
   .output-tag {
     font-size: 30px;

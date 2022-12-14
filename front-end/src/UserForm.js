@@ -44,7 +44,7 @@ function UserForm() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     };
-    fetch("http://34.73.136.85:9001/predict", requestOptions)
+    fetch("http://localhost:9001/predict", requestOptions)
       .then((response) => handleResponse(response))
       .then((value) => handleValue(value))
       .catch((error) => handleError(error));
@@ -81,6 +81,10 @@ function UserForm() {
 
   return (
     <div className="app">
+      <div className="vislink">
+        <label>Checkout our dataset visualization </label>
+        <a className="vis" href="./Visualization.html">Here</a>
+      </div>
       <div className="user-form">
         <div className="title">Enter House Information For Prediction</div>
         {renderForm}
