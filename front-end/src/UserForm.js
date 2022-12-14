@@ -44,7 +44,7 @@ function UserForm() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     };
-    fetch("http://localhost:9001/predict", requestOptions)
+    fetch("http://34.73.136.85:9001/predict", requestOptions)
       .then((response) => handleResponse(response))
       .then((value) => handleValue(value))
       .catch((error) => handleError(error));

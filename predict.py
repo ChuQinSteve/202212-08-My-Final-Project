@@ -7,7 +7,7 @@ import pgeocode
 import pickle
 import json
 
-HOST = "localhost"
+HOST = "0.0.0.0"
 PORT = 9001
 app = Flask(__name__,
         static_url_path='/',

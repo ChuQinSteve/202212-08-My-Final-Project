@@ -3,3 +3,4 @@ flask_cors
 numpy
 pandas
 pgeocode
+sklearn
