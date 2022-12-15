@@ -7,21 +7,21 @@ function UserForm() {
   var response = "";
 
   // React States
-  const [output, setOutput] = useState('');
+  const [output, setOutput] = useState({});
 
 
   const handleResponse = (response) => {
+    console.log(response)
     if (response.status === 200) {
       return response.json()
     }
-  }
-
-  const handleValue = (value) => {
-    setOutput("Predicted value is: " + parseFloat(value['price_predicted']).toFixed(1))
+    else {
+      throw response.text()
+    }
   }
 
   const handleError = (error) => {
-    console.log(error);
+    return error;
   }
 
   const handleSubmit = (event) => {
@@ -36,8 +36,6 @@ function UserForm() {
       "zip_code": formData[3].value
     };
 
-    console.log(data);
-
     const requestOptions = {
       method: "POST",
       credentials: 'include',
@@ -46,8 +44,15 @@ function UserForm() {
     };
     fetch("http://localhost:9001/predict", requestOptions)
       .then((response) => handleResponse(response))
-      .then((value) => handleValue(value))
-      .catch((error) => handleError(error));
+      .then((value) => {
+        setOutput({value: "Predicted value is: " + parseFloat(value['price_predicted']).toFixed(1),
+                    color: 'black'})
+      })
+      .catch((error) => handleError(error))
+      .then((value) => {
+        if (value !== undefined) setOutput({value: "Error: " + value,
+                                            color: '#FF4504'})
+      });
   };
 
 
@@ -89,7 +94,7 @@ function UserForm() {
         <div className="title">Enter House Information For Prediction</div>
         {renderForm}
       </div>
-      <div className="output-tag">{output}</div>
+      <div className="output-tag" style={{ color: output.color }}>{output.value}</div>
     </div>
   );
 }
