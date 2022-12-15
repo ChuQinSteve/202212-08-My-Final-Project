@@ -81,7 +81,7 @@ def predict():
         return Response('State Not Supported', status=400, content_type="text/plain")
 
     # Check W.R.T. dataset
-    nynj_df = pd.read_csv("nynj_data.csv")
+    nynj_df = pd.read_csv("datasets/nynj_data.csv")
     
     # Here we manually removed some zipcode and assign to others just to test not existed zip codes
     # nynj_df.loc[nynj_df['zip_code'] == 7057, 'zip_code'] = 7051
