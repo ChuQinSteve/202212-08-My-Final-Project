@@ -82,6 +82,9 @@ def predict():
 
     # Check W.R.T. dataset
     nynj_df = pd.read_csv("nynj_data.csv")
+    
+    # Here we manually removed some zipcode and assign to others just to test not existed zip codes
+    # nynj_df.loc[nynj_df['zip_code'] == 7057, 'zip_code'] = 7051
 
     # Check city
     if (nynj_df[nynj_df['city']==city].shape[0] == 0):
@@ -92,11 +95,13 @@ def predict():
     zip_enc = None
     if (nynj_df[nynj_df['zip_code']==int(zipcode)].shape[0] == 0):
         # Not existed, find closest point in existed dataset
+        print("not exist")
         closest_data = find_closest(nynj_df, lon, lat)
         city_enc = closest_data.city_enc
         zip_enc = closest_data.zip_enc
     else:
         # Existed in dataset
+        print("exist")
         index = nynj_df[nynj_df['zip_code']==int(zipcode)].index.values[0]
         template_data = nynj_df.iloc[index,]
         city_enc = template_data.city_enc
