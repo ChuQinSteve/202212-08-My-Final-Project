@@ -63,6 +63,9 @@ def predict():
     zipcode = body['zip_code']
 
     # get zip code info
+    if (type(zipcode) != str):
+        zipcode = str(zipcode)
+    zipcode = pad_zeros(zipcode)
     info = find_zip_info(zipcode)
     state = info.state_code
     city = info.place_name
