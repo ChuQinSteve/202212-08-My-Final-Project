@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "./UserForm.css";
 
 function UserForm() {
@@ -42,7 +41,7 @@ function UserForm() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     };
-    fetch("http://localhost:9001/predict", requestOptions)
+    fetch("http://34.123.1.111:9001/predict", requestOptions)
       .then((response) => handleResponse(response))
       .then((value) => {
         setOutput({value: "Predicted value is: " + parseFloat(value['price_predicted']).toFixed(1),
@@ -88,7 +87,7 @@ function UserForm() {
     <div className="app">
       <div className="vislink">
         <label>Checkout our dataset visualization </label>
-        <a className="vis" href="./Visualization.html">Here</a>
+        <a className="vis" href="/visualization.html">Here</a>
       </div>
       <div className="user-form">
         <div className="title">Enter House Information For Prediction</div>

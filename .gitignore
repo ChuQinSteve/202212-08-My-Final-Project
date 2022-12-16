@@ -134,6 +134,8 @@ front-end/node_modules
 
 # production
 front-end/build
+front-end/nohup.out
+nohup.out
 
 # misc
 .DS_Store
