@@ -41,7 +41,7 @@ function UserForm() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     };
-    fetch("http://34.123.1.111:9001/predict", requestOptions)
+    fetch("http://104.154.230.85:9001/predict", requestOptions)
       .then((response) => handleResponse(response))
       .then((value) => {
         setOutput({value: "Predicted value is: " + parseFloat(value['price_predicted']).toFixed(1),
@@ -84,16 +84,26 @@ function UserForm() {
   );
 
   return (
-    <div className="app">
-      <div className="vislink">
-        <label>Checkout our dataset visualization </label>
-        <a className="vis" href="/visualization.html">Here</a>
+    <div>
+      <div className="title">Real Estate Price Prediction</div>
+
+      <div className="app">
+        <div className="content">
+          <div className="vislink">
+            <label>Checkout our dataset visualization </label>
+            <a className="vis" href="./visualization.html">Here</a>
+          </div>
+          <div className="user-form">
+            <div className="formtitle">Enter House Information For Prediction</div>
+            {renderForm}
+          </div>
+          <div className="output-tag" style={{ color: output.color }}>{output.value}</div>
+        </div>
+        
+        <div className="footer">
+          EECS 6893 Final Project @ Columbia University
+        </div>
       </div>
-      <div className="user-form">
-        <div className="title">Enter House Information For Prediction</div>
-        {renderForm}
-      </div>
-      <div className="output-tag" style={{ color: output.color }}>{output.value}</div>
     </div>
   );
 }
