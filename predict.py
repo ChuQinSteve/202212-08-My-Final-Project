@@ -13,7 +13,7 @@ app = Flask(__name__,
         static_url_path='/',
         static_folder='static/class-ui/',
         template_folder='web/templates')
-CORS(app, supports_credentials=True)
+CORS(app)
 model_file = 'rf_model.pkl'
 
 # Helper function that calculates Haversine distance
