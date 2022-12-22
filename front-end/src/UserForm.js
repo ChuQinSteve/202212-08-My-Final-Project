@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./UserForm.css";
 
+const IP = "34.69.209.1"
+
 function UserForm() {
 
   var response = "";
@@ -40,7 +42,7 @@ function UserForm() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     }
-    fetch("http://34.69.209.1:9001/predict", requestOptions)
+    fetch("http://" + IP + ":9001/predict", requestOptions)
       .then((response) => handleResponse(response))
       .then((value) => {
         setOutput({value: "Predicted value is: " + parseFloat(value['price_predicted']).toFixed(1),

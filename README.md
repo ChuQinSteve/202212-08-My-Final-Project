@@ -1,14 +1,16 @@
 # 6893-project
 
-All our code for model training are stored inside `./model-code/`.
+All our code for model training are stored inside `./model-code/`. All of them can be accessed with Jupyter Notebook.
 
 Run `./install.sh` to install all the dependent software like node and python.
 
-To deploy the app:
+Run pip install -r requirements.txt to install all the dependent python packages.
+
+To deploy & run the app:
 
 1. Host Python back-end application with `nohup python3 predict.py` to run the app as a background process
 
-2. Change ip address in UserForm.js file to the ip address of the hosting machine
+2. Change the IP address in UserForm.js file in to the ip address of the hosting machine (eg. in case of local machine, change it to 127.0.0.1 or localhost)
 
 3. Go to root directory of the front-end application with `cd front-end` 
 
